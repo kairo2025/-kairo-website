@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAIRO INVESTMENT (PVT) LTD | www.kairoinvestment.lk</title>
+    <link rel="canonical" href="https://www.kairoinvestment.lk/">
+    <meta property="og:title" content="KAIRO INVESTMENT (PVT) LTD | Financial, Management & Export Ecosystem">
+    <meta property="og:url" content="https://www.kairoinvestment.lk/">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans, Space Grotesk & Noto Sans Sinhala -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        kairo: {
+                            abyss: '#05110B',
+                            dark: '#0A1F14',
+                            forest: '#0D2B1D',
+                            emerald: '#118C3A',
+                            vibrant: '#2DB34A',
+                            gold: '#FDB813',
+                            amber: '#F59E0B',
+                            yellow: '#FFE600'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '"Noto Sans Sinhala"', 'sans-serif'],
+                        display: ['"Space Grotesk"', '"Noto Sans Sinhala"', 'sans-serif'],
+                        sinhala: ['"Noto Sans Sinhala"', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --kairo-abyss: #05110B;
+            --kairo-forest: #0D2B1D;
+            --kairo-emerald: #118C3A;
+            --kairo-vibrant: #2DB34A;
+            --kairo-gold: #FDB813;
+        }
+
+        body {
+            background-color: var(--kairo-abyss);
+            color: #F8FAFC;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 38%, rgba(17, 140, 58, 0.18) 0%, rgba(5, 17, 11, 0.95) 60%),
+                linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+            background-size: 100% 100%, 48px 48px, 48px 48px;
+        }
+
+        @keyframes spinSlow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        @keyframes spinReverseSlow {
+            from { transform: translate(-50%, -50%) rotate(360deg); }
+            to { transform: translate(-50%, -50%) rotate(0deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(17, 140, 58, 0.35), 0 0 80px rgba(253, 184, 19, 0.15); }
+            50% { box-shadow: 0 0 60px rgba(45, 179, 74, 0.55), 0 0 110px rgba(253, 184, 19, 0.28); }
+        }
+        @keyframes dashFlow {
+            to { stroke-dashoffset: -36; }
+        }
+        @keyframes blinkLed {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px currentColor; }
+            50% { opacity: 0.3; transform: scale(0.82); box-shadow: 0 0 2px currentColor; }
+        }
+        .led-pulse {
+            animation: blinkLed 1.6s ease-in-out infinite;
+        }
+
+        .orbit-ring-1 {
+            animation: spinSlow 75s linear infinite;
+        }
+        .orbit-ring-2 {
+            animation: spinReverseSlow 100s linear infinite;
+        }
+        .center-hub-glow {
+            animation: pulseGlow 4.5s ease-in-out infinite;
+        }
+        .beam-active {
+            stroke-dasharray: 6 6;
+            animation: dashFlow 1s linear infinite;
+        }
+
+        .glass-node {
+            background: linear-gradient(145deg, rgba(16, 44, 30, 0.85), rgba(7, 22, 15, 0.94));
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(45, 179, 74, 0.28);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+        }
+        .glass-node:hover, .glass-node.active-node {
+            transform: translateY(-4px) scale(1.03);
+            border-color: #FDB813;
+            background: linear-gradient(145deg, rgba(22, 62, 42, 0.95), rgba(11, 33, 22, 0.98));
+            box-shadow: 0 14px 35px -8px rgba(0, 0, 0, 0.7), 0 0 22px rgba(253, 184, 19, 0.28);
+        }
+
+        .glass-panel {
+            background: linear-gradient(160deg, rgba(14, 39, 27, 0.85), rgba(6, 18, 12, 0.95));
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05110B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #118C3A;
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FDB813;
+        }
+
+        @media (min-width: 1024px) {
+            .orbital-stage {
+                position: relative;
+                height: 840px;
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+            }
+            .orbital-node-wrapper {
+                position: absolute;
+                width: 285px;
+                transform: translate(-50%, -50%);
+                z-index: 20;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-kairo-gold selection:text-kairo-abyss">
+
+    <!-- Floating Top Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-40 px-4 py-3 md:px-8">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl px-4 py-2.5 md:px-6 flex items-center justify-between shadow-2xl border border-emerald-500/20">
+            <!-- Brand Mini Logo & Single-Line Header -->
+            <a href="#ecosystem" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-white p-1 flex items-center justify-center shadow-md group-hover:scale-105 transition-transform overflow-hidden">
+                    <svg viewBox="0 0 240 215" class="w-full h-full object-contain" xmlns="http://www.w3.org/2000/svg">
+                        <polygon points="22,148 80,45 92,65 44,148" fill="#FFE600"/>
+                        <polygon points="80,45 92,65 44,148 33,148" fill="#FDB813"/>
+                        <polygon points="78,66 120,6 120,38 92,80" fill="#2DB34A"/>
+                        <polygon points="120,6 162,66 148,80 120,38" fill="#118C3A"/>
+                        <polygon points="148,65 160,45 218,148 207,148" fill="#118C3A"/>
+                        <polygon points="148,65 160,45 207,148 196,148" fill="#2DB34A"/>
+                        <polygon points="53,148 69,120 69,148" fill="#0D2B1D"/>
+                        <polygon points="76,148 76,105 89,84 89,148" fill="#0D2B1D"/>
+                        <polygon points="96,148 96,73 111,50 111,148" fill="#0D2B1D"/>
+                        <polygon points="111,103 136,68 148,82 121,117 151,148 134,148 111,123" fill="#0D2B1D"/>
+                        <polygon points="154,148 154,96 167,118 167,148" fill="#0D2B1D"/>
+                        <polygon points="174,148 174,130 185,148" fill="#0D2B1D"/>
+                        <text x="120" y="177" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="27" letter-spacing="3.8" fill="#050A07">KAIRO</text>
+                        <text x="120" y="196" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12.5" letter-spacing="3.2" fill="#0D2B1D">INVESTMENT</text>
+                    </svg>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="font-display font-bold text-xs sm:text-sm md:text-base tracking-wider text-white">KAIRO INVESTMENT</span>
+                        <span class="text-xs md:text-sm font-extrabold tracking-widest text-kairo-gold uppercase">(PVT) LTD</span>
+                    </div>
+                    <span class="text-[10px] text-emerald-300/80 font-medium block leading-tight">• www.kairoinvestment.lk</span>
+                </div>
+            </a>
+
+            <!-- Center Quick Links (Desktop) -->
+            <div class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-300">
+                <a href="#ecosystem" class="hover:text-kairo-gold transition-colors" data-i18n="nav_ecosystem">Service Ecosystem</a>
+                <a href="#vision-mission" class="hover:text-kairo-gold transition-colors" data-i18n="nav_vision">Vision & Mission</a>
+                <a href="#currency-exchange" class="hover:text-kairo-gold transition-colors" data-i18n="nav_calc">Currency Rates</a>
+                <a href="#careers" class="hover:text-kairo-gold transition-colors" data-i18n="nav_careers">Careers</a>
+            </div>
+
+            <!-- Right Actions: Language Switcher & Contact CTA -->
+            <div class="flex items-center gap-2 md:gap-3">
+                <div class="flex items-center bg-kairo-abyss/90 border border-emerald-500/30 rounded-xl p-1 text-xs font-semibold">
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-3 py-1 rounded-lg bg-kairo-emerald text-white transition-all shadow">English</button>
+                    <button onclick="setLanguage('si')" id="lang-si" class="px-3 py-1 rounded-lg text-slate-300 hover:text-white transition-all">සිංහල</button>
+                </div>
+                <button onclick="openInquiryModal('General Inquiry')" class="hidden sm:inline-flex items-center gap-1.5 bg-gradient-to-r from-kairo-gold to-amber-500 hover:from-yellow-300 hover:to-kairo-gold text-kairo-abyss font-extrabold text-xs md:text-sm px-4 py-2 rounded-xl shadow-lg shadow-amber-500/20 transition-all">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span data-i18n="nav_cta">Contact Us</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN SECTION 1: ORBITAL ECOSYSTEM HUB -->
+    <main id="ecosystem" class="pt-24 md:pt-28 pb-12 px-4 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center mb-6 md:mb-4 relative z-20">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-xs md:text-sm text-emerald-300 mb-3 shadow">
+                <span class="w-2 h-2 rounded-full bg-kairo-gold animate-ping"></span>
+                <span data-i18n="hero_badge">Financial, Management & Export Excellence • www.kairoinvestment.lk</span>
+            </div>
+            <h1 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+                <span data-i18n="hero_title">Empowering Growth Through Precision Finance & Global Trade</span>
+            </h1>
+            <p class="text-slate-300 text-xs sm:text-sm md:text-base max-w-2xl mx-auto mt-2" data-i18n="hero_sub">
+                Click any orbiting division around our corporate emblem to explore professional services and apply online.
+            </p>
+        </div>
+
+        <div class="orbital-stage flex flex-col items-center justify-center relative my-4" id="orbitalStage">
+            <svg id="orbitalBeamsSvg" class="hidden lg:block absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1280 840" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                    <radialGradient id="hubGlowGrad" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#2DB34A" stop-opacity="0.38"/>
+                        <stop offset="60%" stop-color="#FDB813" stop-opacity="0.10"/>
+                        <stop offset="100%" stop-color="#05110B" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <circle cx="640" cy="420" r="280" fill="url(#hubGlowGrad)"/>
+                <g id="beamsGroup"></g>
+            </svg>
+
+            <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] h-[550px] rounded-full border border-dashed border-emerald-500/25 orbit-ring-1 pointer-events-none"></div>
+            <div class="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[730px] h-[730px] rounded-full border border-kairo-gold/15 orbit-ring-2 pointer-events-none"></div>
+
+            <!-- EXACT OFFICIAL LOGO VECTOR AS THE CENTER HUB -->
+            <div onclick="resetOrbitSelection()" title="KAIRO INVESTMENT (PVT) LTD" class="relative lg:absolute lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 z-30 my-6 lg:my-0 cursor-pointer group">
+                <div class="w-72 sm:w-80 h-72 sm:h-80 rounded-full p-2.5 bg-gradient-to-tr from-kairo-emerald via-kairo-gold to-kairo-vibrant center-hub-glow transition-transform duration-500 group-hover:scale-105">
+                    <div class="w-full h-full rounded-full bg-white flex flex-col items-center justify-center p-6 shadow-inner relative overflow-hidden">
+                        <svg viewBox="0 0 240 215" class="w-56 sm:w-60 h-auto object-contain drop-shadow-md" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="22,148 80,45 92,65 44,148" fill="#FFE600"/>
+                            <polygon points="80,45 92,65 44,148 33,148" fill="#FDB813"/>
+                            <polygon points="78,66 120,6 120,38 92,80" fill="#2DB34A"/>
+                            <polygon points="120,6 162,66 148,80 120,38" fill="#118C3A"/>
+                            <polygon points="148,65 160,45 218,148 207,148" fill="#118C3A"/>
+                            <polygon points="148,65 160,45 207,148 196,148" fill="#2DB34A"/>
+                            <polygon points="53,148 69,120 69,148" fill="#0D2B1D"/>
+                            <polygon points="76,148 76,105 89,84 89,148" fill="#0D2B1D"/>
+                            <polygon points="96,148 96,73 111,50 111,148" fill="#0D2B1D"/>
+                            <polygon points="111,103 136,68 148,82 121,117 151,148 134,148 111,123" fill="#0D2B1D"/>
+                            <polygon points="154,148 154,96 167,118 167,148" fill="#0D2B1D"/>
+                            <polygon points="174,148 174,130 185,148" fill="#0D2B1D"/>
+                            <text x="120" y="177" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="27" letter-spacing="3.8" fill="#050A07">KAIRO</text>
+                            <text x="120" y="196" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12.5" letter-spacing="3.2" fill="#0D2B1D">INVESTMENT</text>
+                        </svg>
+                    </div>
+                </div>
+                <div class="mt-3.5 text-center">
+                    <span data-i18n="hub_badge" class="inline-block px-3.5 py-1 rounded-full bg-kairo-forest/90 border border-kairo-gold/40 text-xs font-bold text-kairo-gold tracking-wider uppercase shadow-lg">
+                        8 Core Divisions • Click to Explore
+                    </span>
+                </div>
+            </div>
+
+            <div id="nodesContainer" class="w-full grid grid-cols-1 sm:grid-cols-2 gap-4 lg:block z-20 mt-4 lg:mt-0"></div>
+        </div>
+    </main>
+
+    <!-- MAIN SECTION 2: VISION & MISSION SHOWCASE -->
+    <section id="vision-mission" class="py-16 px-4 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+                <div>
+                    <span class="text-kairo-gold font-bold text-xs tracking-widest uppercase block mb-2" data-i18n="vm_tag">CORPORATE COMPASS</span>
+                    <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-bold text-white" data-i18n="vm_heading">
+                        Our Vision & Mission
+                    </h2>
+                </div>
+                <button onclick="toggleEditVisionMission()" id="editVmBtn" class="self-start md:self-auto inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-950/90 hover:bg-emerald-900 border border-emerald-500/40 text-xs sm:text-sm font-semibold text-emerald-200 transition-all shadow">
+                    <i data-lucide="edit-3" class="w-4 h-4 text-kairo-gold"></i>
+                    <span id="editVmBtnText" data-i18n="vm_edit_btn">Edit Vision & Mission</span>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- VISION CARD -->
+                <div class="glass-panel rounded-3xl p-7 sm:p-8 border-t-4 border-t-kairo-vibrant relative overflow-hidden group shadow-xl">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-kairo-emerald/15 blur-2xl group-hover:bg-kairo-vibrant/25 transition-all"></div>
+                    <div class="flex items-center gap-3.5 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-kairo-emerald/20 border border-kairo-vibrant/40 flex items-center justify-center text-kairo-vibrant">
+                            <i data-lucide="eye" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white" data-i18n="vision_title">Our Vision</h3>
+                            <p class="text-xs text-emerald-300/80" data-i18n="vision_sub">Future Horizon</p>
+                        </div>
+                    </div>
+
+                    <div id="visionDisplay" class="space-y-3 text-slate-200 leading-relaxed">
+                        <p id="visionActiveText" class="text-base font-medium text-white border-l-2 border-kairo-vibrant pl-3.5"></p>
+                    </div>
+
+                    <div id="visionEdit" class="hidden space-y-3">
+                        <label class="block text-xs text-emerald-300 font-semibold" id="visionEditLabel">Edit Vision Statement:</label>
+                        <textarea id="visionInput" rows="3" class="w-full rounded-xl bg-kairo-abyss/90 border border-emerald-500/40 p-3 text-sm text-white focus:outline-none focus:border-kairo-gold"></textarea>
+                    </div>
+                </div>
+
+                <!-- MISSION CARD -->
+                <div class="glass-panel rounded-3xl p-7 sm:p-8 border-t-4 border-t-kairo-gold relative overflow-hidden group shadow-xl">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 rounded-full bg-kairo-gold/15 blur-2xl group-hover:bg-kairo-gold/25 transition-all"></div>
+                    <div class="flex items-center gap-3.5 mb-5">
+                        <div class="w-12 h-12 rounded-2xl bg-kairo-gold/20 border border-kairo-gold/40 flex items-center justify-center text-kairo-gold">
+                            <i data-lucide="compass" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-display text-xl font-bold text-white" data-i18n="mission_title">Our Mission</h3>
+                            <p class="text-xs text-amber-200/80" data-i18n="mission_sub">Core Purpose</p>
+                        </div>
+                    </div>
+
+                    <div id="missionDisplay" class="space-y-3 text-slate-200 leading-relaxed">
+                        <p id="missionActiveText" class="text-base font-medium text-white border-l-2 border-kairo-gold pl-3.5"></p>
+                    </div>
+
+                    <div id="missionEdit" class="hidden space-y-3">
+                        <label class="block text-xs text-amber-300 font-semibold" id="missionEditLabel">Edit Mission Statement:</label>
+                        <textarea id="missionInput" rows="3" class="w-full rounded-xl bg-kairo-abyss/90 border border-kairo-gold/40 p-3 text-sm text-white focus:outline-none focus:border-kairo-gold"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SECTION 3: LIVE GLOBAL CURRENCY EXCHANGE & CONVERTER (API INTEGRATED, ZERO BADGES) -->
+    <section id="currency-exchange" class="py-16 px-4 relative z-25">
+        <div class="max-w-6xl mx-auto glass-panel rounded-3xl p-6 sm:p-10 border border-emerald-500/30 shadow-2xl">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 pb-6 border-b border-white/10">
+                <div>
+                    <h2 class="font-display text-2xl sm:text-3xl font-bold text-white" data-i18n="curr_title">
+                        Real-Time Currency Rates & Simultaneous Buy/Sell Converter
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Interactive Converter Box (Displays BOTH Buying & Selling Values Simultaneously) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-kairo-forest to-kairo-abyss rounded-2xl p-6 sm:p-7 border border-kairo-gold/30 shadow-xl flex flex-col justify-between space-y-5">
+                    <div>
+                        <h3 class="font-display text-lg font-bold text-white mb-4 flex items-center gap-2">
+                            <i data-lucide="repeat" class="w-5 h-5 text-kairo-gold"></i>
+                            <span data-i18n="conv_heading">Instant Currency Converter</span>
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="conv_amount_label">Foreign Currency Amount:</label>
+                                <input type="number" id="convAmount" min="1" value="100" oninput="updateCurrencyConverter()" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-4 py-3 text-sm text-white focus:outline-none focus:border-kairo-gold font-display font-bold">
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="conv_from_label">From Currency:</label>
+                                    <select id="convCurrency" onchange="updateCurrencyConverter()" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3 py-3 text-sm text-white focus:outline-none focus:border-kairo-gold">
+                                        <option value="USD">USD - US Dollar</option>
+                                        <option value="EUR">EUR - Euro</option>
+                                        <option value="GBP">GBP - British Pound</option>
+                                        <option value="AUD">AUD - Australian Dollar</option>
+                                        <option value="CAD">CAD - Canadian Dollar</option>
+                                        <option value="SGD">SGD - Singapore Dollar</option>
+                                        <option value="JPY">JPY - Japanese Yen</option>
+                                        <option value="INR">INR - Indian Rupee</option>
+                                        <option value="AED">AED - UAE Dirham</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="conv_to_label">To Target:</label>
+                                    <div class="w-full rounded-xl bg-kairo-abyss/80 border border-emerald-500/20 px-3 py-3 text-sm font-bold text-kairo-gold flex items-center justify-center">
+                                        LKR (Sri Lanka)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-white/10 space-y-3">
+                        <!-- Simultaneous Buying Value Display -->
+                        <div class="bg-kairo-abyss/80 rounded-xl p-3 border border-emerald-500/20 text-center">
+                            <span class="text-[11px] uppercase tracking-wider text-kairo-vibrant font-semibold block mb-0.5" data-i18n="conv_buy_result_label">Bank Buying Value in LKR</span>
+                            <div class="font-display text-xl sm:text-2xl font-extrabold text-white" id="conversionBuyResult">LKR 0.00</div>
+                        </div>
+                        <!-- Simultaneous Selling Value Display -->
+                        <div class="bg-kairo-abyss/80 rounded-xl p-3 border border-kairo-gold/30 text-center">
+                            <span class="text-[11px] uppercase tracking-wider text-kairo-gold font-semibold block mb-0.5" data-i18n="conv_sell_result_label">Bank Selling Value in LKR</span>
+                            <div class="font-display text-xl sm:text-2xl font-extrabold text-white" id="conversionSellResult">LKR 0.00</div>
+                        </div>
+                        <button onclick="inquireFromConverter()" class="w-full mt-2 py-3 px-4 rounded-xl bg-gradient-to-r from-kairo-gold to-amber-500 hover:from-yellow-300 hover:to-kairo-gold text-kairo-abyss font-extrabold text-xs sm:text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                            <span data-i18n="conv_inquire_btn">Inquire About FX / Trade Services</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Live Rates Table with Explicit BUY and SELL Columns against LKR (Zero API Status Badges) -->
+                <div class="lg:col-span-7 overflow-hidden rounded-2xl border border-emerald-500/30 bg-kairo-abyss/90 flex flex-col shadow-xl">
+                    <div class="p-4 bg-gradient-to-r from-kairo-forest to-kairo-dark border-b border-emerald-500/30 flex items-center justify-between">
+                        <h3 class="font-display font-bold text-sm sm:text-base text-white flex items-center gap-2">
+                            <i data-lucide="globe" class="w-4 h-4 text-kairo-gold"></i>
+                            <span data-i18n="table_heading">Live Bank Buying & Selling Rates vs LKR</span>
+                        </h3>
+                    </div>
+                    <div class="overflow-x-auto flex-1">
+                        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                            <thead>
+                                <tr class="border-b border-white/10 text-slate-400 bg-emerald-950/40">
+                                    <th class="p-3 sm:px-4 font-semibold" data-i18n="th_currency">Currency</th>
+                                    <th class="p-3 sm:px-4 font-semibold" data-i18n="th_code">Code</th>
+                                    <th class="p-3 sm:px-4 font-semibold text-right" data-i18n="th_buy">Bank Buying (LKR)</th>
+                                    <th class="p-3 sm:px-4 font-semibold text-right" data-i18n="th_sell">Bank Selling (LKR)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="liveRatesTableBody" class="divide-y divide-white/5">
+                                <!-- Populated dynamically by Live API JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN SECTION 4: CAREER OPPORTUNITIES & JOB VACANCIES WITH CV UPLOAD -->
+    <section id="careers" class="py-16 px-4 relative z-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-xs text-emerald-300 mb-3 shadow">
+                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-kairo-gold"></i>
+                    <span data-i18n="careers_badge">JOIN OUR GROWING ECOSYSTEM</span>
+                </div>
+                <h2 class="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-white" data-i18n="careers_title">
+                    Career Opportunities & Job Vacancies
+                </h2>
+                <p class="text-slate-300 text-xs sm:text-sm max-w-2xl mx-auto mt-2" data-i18n="careers_sub">
+                    Explore open professional roles at KAIRO INVESTMENT (PVT) LTD and submit your curriculum vitae (CV) securely online.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="vacanciesGrid">
+                <!-- Populated dynamically via JS for bilingual support -->
+            </div>
+
+            <!-- Integrated CV Upload Application Form Container -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-10 border border-kairo-gold/30 shadow-2xl max-w-3xl mx-auto">
+                <div class="text-center mb-8">
+                    <h3 class="font-display text-xl sm:text-2xl font-bold text-white flex items-center justify-center gap-2">
+                        <i data-lucide="file-text" class="w-6 h-6 text-kairo-gold"></i>
+                        <span data-i18n="cv_form_heading">Direct CV Submission Portal</span>
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-300 mt-1" data-i18n="cv_form_sub">
+                        Upload your updated CV (PDF or Word) and details for our recruitment team.
+                    </p>
+                </div>
+
+                <form name="kairo-careers" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" onsubmit="submitCareerForm(event)" class="space-y-4">
+                    <input type="hidden" name="form-name" value="kairo-careers">
+                    <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_fullname">Full Name *</label>
+                            <input type="text" id="applicantName" name="fullName" required placeholder="e.g. S. A. Perera" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-kairo-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_email">Email Address *</label>
+                            <input type="email" id="applicantEmail" name="email" required placeholder="e.g. perera@gmail.com" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-kairo-gold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_phone">Phone Number *</label>
+                            <input type="tel" id="applicantPhone" name="phone" required placeholder="e.g. +94 77 123 4567" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-kairo-gold">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_position">Position Applying For *</label>
+                            <select id="applicantPosition" name="position" required class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3.5 py-3 text-sm text-white focus:outline-none focus:border-kairo-gold">
+                                <option value="" disabled selected data-i18n="opt_select_pos">-- Select Position --</option>
+                                <option value="Senior Financial Advisor">Senior Financial Advisor</option>
+                                <option value="Relationship Manager (Loans & Leasing)">Relationship Manager (Loans & Leasing)</option>
+                                <option value="Export Operations & Logistics Executive">Export Operations & Logistics Executive</option>
+                                <option value="Customer Relations & Administrative Officer">Customer Relations & Administrative Officer</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_cv">Upload CV / Resume (PDF, DOC, DOCX - Max 5MB) *</label>
+                        <div class="relative border-2 border-dashed border-emerald-500/40 rounded-2xl p-6 text-center hover:border-kairo-gold transition-colors bg-kairo-abyss/60">
+                            <input type="file" id="applicantCv" name="cvFile" accept=".pdf,.doc,.docx" required onchange="handleFileSelect(this)" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full">
+                            <div class="flex flex-col items-center justify-center space-y-2">
+                                <div class="w-10 h-10 rounded-xl bg-kairo-emerald/20 text-kairo-gold flex items-center justify-center">
+                                    <i data-lucide="upload-cloud" class="w-5 h-5"></i>
+                                </div>
+                                <span id="cvFileNameDisplay" class="text-xs text-slate-300 font-medium" data-i18n="cv_upload_prompt">Click to browse or drag & drop your CV file here</span>
+                                <span class="text-[10px] text-emerald-400">PDF, DOC, DOCX supported</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1.5" data-i18n="lbl_cover">Cover Note / Remarks (Optional)</label>
+                        <textarea id="applicantCover" name="coverNote" rows="3" placeholder="Briefly highlight your qualifications..." class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/40 px-3.5 py-3 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-kairo-gold"></textarea>
+                    </div>
+
+                    <button type="submit" id="careerSubmitBtn" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-kairo-gold to-amber-500 hover:from-yellow-300 hover:to-kairo-gold text-kairo-abyss font-extrabold text-sm shadow-xl transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span data-i18n="btn_submit_cv">Submit Application & CV</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORPORATE FOOTER -->
+    <footer class="border-t border-emerald-500/20 bg-kairo-abyss/95 pt-12 pb-8 px-4 relative z-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/10">
+            <div>
+                <h4 class="font-display font-bold text-lg text-white">KAIRO INVESTMENT (PVT) LTD</h4>
+                <p class="text-xs text-kairo-gold font-semibold tracking-wider mt-0.5 mb-3" data-i18n="footer_tagline">FINANCE • MANAGEMENT • EXPORTS</p>
+                <p class="text-sm text-slate-400 leading-relaxed" data-i18n="footer_desc">
+                    Modern financial solutions, strategic investment advisory, local & global client management, and premium Ceylon cinnamon exports under one roof.
+                </p>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm text-white uppercase tracking-wider mb-3" data-i18n="footer_div_heading">Core Divisions</h5>
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300" id="footerDivisionsList"></ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm text-white uppercase tracking-wider mb-3" data-i18n="footer_contact_heading">Contact Office</h5>
+                <ul class="space-y-2.5 text-xs sm:text-sm text-slate-300">
+                    <li class="flex items-start gap-2.5">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-kairo-gold shrink-0 mt-0.5"></i>
+                        <span data-i18n="footer_address">No 94/5, High Level Road, Maharagama, Sri Lanka</span>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="mail" class="w-4 h-4 text-kairo-vibrant shrink-0"></i>
+                        <a href="mailto:info@kairoinvestment.lk" class="hover:text-kairo-gold transition-colors">info@kairoinvestment.lk</a>
+                    </li>
+                    <li class="flex items-center gap-2.5">
+                        <i data-lucide="globe" class="w-4 h-4 text-kairo-gold shrink-0"></i>
+                        <a href="https://www.kairoinvestment.lk" target="_blank" rel="noopener noreferrer" class="text-kairo-gold font-semibold hover:underline">www.kairoinvestment.lk</a>
+                    </li>
+                    <li class="pt-1">
+                        <button onclick="openInquiryModal('Direct Consultation')" class="text-xs font-bold text-kairo-gold hover:underline flex items-center gap-1">
+                            <span data-i18n="footer_msg_link">Send an Online Inquiry →</span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-2">
+            <p>© <span id="yearSpan"></span> KAIRO INVESTMENT (PVT) LTD (<a href="https://www.kairoinvestment.lk" class="text-slate-400 hover:text-kairo-gold transition-colors">www.kairoinvestment.lk</a>). <span data-i18n="footer_rights">All Rights Reserved.</span></p>
+            <p data-i18n="footer_credit">Designed with Emerald & Gold Precision</p>
+        </div>
+    </footer>
+
+    <!-- SERVICE DETAIL & NETLIFY INQUIRY MODAL -->
+    <div id="serviceModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-panel w-full max-w-2xl rounded-3xl border border-kairo-gold/40 shadow-2xl overflow-hidden max-h-[92vh] flex flex-col">
+            <div class="p-6 bg-gradient-to-r from-kairo-forest to-kairo-dark border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3.5">
+                    <div id="modalIconBox" class="w-12 h-12 rounded-2xl bg-kairo-gold/20 border border-kairo-gold/50 flex items-center justify-center text-kairo-gold"></div>
+                    <div>
+                        <span id="modalCategoryTag" class="text-[11px] font-bold uppercase tracking-widest text-kairo-vibrant block">SERVICE DIVISION</span>
+                        <h3 id="modalTitle" class="font-display text-lg sm:text-xl font-bold text-white mt-0.5"></h3>
+                    </div>
+                </div>
+                <button onclick="closeServiceModal()" class="w-9 h-9 rounded-xl bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto space-y-6">
+                <div>
+                    <p id="modalDesc" class="text-sm sm:text-base text-slate-100 leading-relaxed"></p>
+                </div>
+                <div class="bg-kairo-abyss/80 rounded-2xl p-4 border border-emerald-500/20">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-kairo-gold mb-3" data-i18n="modal_highlights_title">Key Highlights:</h4>
+                    <ul id="modalHighlights" class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm text-slate-200"></ul>
+                </div>
+                <form name="kairo-inquiries" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitInquiry(event)" class="space-y-3.5 pt-2 border-t border-white/10">
+                    <input type="hidden" name="form-name" value="kairo-inquiries">
+                    <p class="hidden">
+                        <label>Don’t fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+                    <h4 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i data-lucide="send" class="w-4 h-4 text-kairo-vibrant"></i>
+                        <span data-i18n="modal_form_title">Submit a Quick Inquiry</span>
+                    </h4>
+                    <input type="hidden" id="inquiryServiceInput" name="service">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" id="clientName" name="name" required placeholder="Your Name *" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/35 px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-kairo-gold">
+                        <input type="tel" id="clientPhone" name="phone" required placeholder="Phone Number *" class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/35 px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-kairo-gold">
+                    </div>
+                    <textarea id="clientNote" name="message" rows="2" placeholder="Briefly describe your requirement (Optional)..." class="w-full rounded-xl bg-kairo-abyss border border-emerald-500/35 px-3.5 py-2.5 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-kairo-gold"></textarea>
+                    <button type="submit" id="modalSubmitBtn" data-i18n="modal_submit_btn" class="w-full py-3 rounded-xl bg-gradient-to-r from-kairo-gold to-amber-500 hover:from-yellow-300 hover:to-kairo-gold text-kairo-abyss font-extrabold text-sm shadow-lg transition-all">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST MESSAGE BOX -->
+    <div id="toastBox" class="fixed bottom-5 right-5 z-50 hidden max-w-sm glass-panel border-l-4 border-l-kairo-vibrant rounded-2xl p-4 shadow-2xl">
+        <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-kairo-vibrant/20 flex items-center justify-center text-kairo-vibrant shrink-0">
+                <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <h5 class="font-bold text-sm text-white" id="toastTitle">Success!</h5>
+                <p class="text-xs text-slate-300 mt-0.5" id="toastMsg"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 8 Core Divisions with professional industrial/corporate photo headers and polished titles
+        const kairoServices = [
+            {
+                id: 1,
+                angle: -90,
+                categoryEn: "CREDIT & LEASING",
+                categorySi: "ණය සහ ලීසිං",
+                icon: "car",
+                accent: "gold",
+                image: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=600&q=80",
+                titleSi: "වාහන ණය පහසුකම්",
+                titleEn: "Vehicle Loan Facilities",
+                shortSi: "සියලුම වාහන සඳහා කඩිනම් ණය පහසුකම්",
+                shortEn: "Fast & flexible vehicle financing",
+                descSi: "ඔබේ සිහින වාහනය මිලදී ගැනීම සඳහා අවම ලියකියවිලි සහ සහනදායී වාරික යටතේ කඩිනම් වාහන ණය පහසුකම් ලබා දෙන්නෙමු.",
+                descEn: "Acquire your dream personal or commercial vehicle with minimal documentation, rapid approval, and tailored repayment schedules.",
+                highlightsSi: ["එක්දින කඩිනම් අනුමැතිය", "නම්‍යශීලී මාසික වාරික", "ලියාපදිංචි සහ ලියාපදිංචි නොකළ වාහන සඳහා", "අවම ඇපකර කොන්දේසි"],
+                highlightsEn: ["Same-day rapid approval", "Flexible monthly installments", "For registered & unregistered vehicles", "Minimal documentation required"]
+            },
+            {
+                id: 2,
+                angle: -45,
+                categoryEn: "SME GROWTH",
+                categorySi: "සුළු හා මධ්‍ය පරිමාණ",
+                icon: "sprout",
+                accent: "emerald",
+                image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=600&q=80", // Pristine professional SME growth photo
+                titleSi: "කුඩා හා මධ්‍යම ණය පහසුකම්",
+                titleEn: "SME & Micro Loan Facilities",
+                shortSi: "සුළු හා මධ්‍ය පරිමාණ ව්‍යවසායකයින් සඳහා",
+                shortEn: "Empowering small & medium enterprises",
+                descSi: "නැගී එන සුළු හා මධ්‍ය පරිමාණ ව්‍යාපාරිකයින්ගේ ප්‍රාග්ධන අවශ්‍යතා සපුරාලීම සඳහා විශේෂිත ණය යෝජනා ක්‍රම.",
+                descEn: "Dedicated working capital and expansion loans designed specifically to uplift Sri Lankan entrepreneurs and SMEs.",
+                highlightsSi: ["ව්‍යාපාරයේ ආදායමට ගැළපෙන වාරික", "කඩිනම් ප්‍රාග්ධන සැපයුම", "ව්‍යාපාර සංවර්ධන මගපෙන්වීම", "සහනදායී පොලී අනුපාත"],
+                highlightsEn: ["Installments tailored to business cash flow", "Quick working capital disbursement", "Business growth advisory support", "Competitive interest rates"]
+            },
+            {
+                id: 3,
+                angle: 0,
+                categoryEn: "CORPORATE FINANCE",
+                categorySi: "ආයතනික මූල්‍ය",
+                icon: "briefcase",
+                accent: "gold",
+                image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80",
+                titleSi: "ව්‍යාපාරික ණය පහසුකම්",
+                titleEn: "Business Loan Facilities",
+                shortSi: "ඔබේ ව්‍යාපාරය ඊළඟ මට්ටමට ගෙන යාමට",
+                shortEn: "Strategic capital for business expansion",
+                descSi: "ව්‍යාපාර පුළුල් කිරීම, තොග මිලදී ගැනීම සහ නව ව්‍යාපෘති ආරම්භ කිරීම සඳහා විශාල පරිමාණ ව්‍යාපාරික ණය පහසුකම්.",
+                descEn: "Structured corporate credit lines to scale operations, boost inventory, and execute high-value commercial projects.",
+                highlightsSi: ["ඉහළ ණය සීමාවන්", "කෙටි කාලීන සහ දිගු කාලීන විකල්ප", "පුද්ගලික මූල්‍ය උපදේශක සහාය", "විනිවිද පෙනෙන ගාස්තු ව්‍යුහය"],
+                highlightsEn: ["High credit limits for expansion", "Short-term and long-term options", "Dedicated financial advisor support", "Transparent fee structure"]
+            },
+            {
+                id: 4,
+                angle: 45,
+                categoryEn: "PROPERTY & ASSET",
+                categorySi: "දේපළ සහ වත්කම්",
+                icon: "landmark",
+                accent: "emerald",
+                image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80",
+                titleSi: "උකස් / දේපළ ණය පහසුකම්",
+                titleEn: "Mortgage Loan Facilities",
+                shortSi: "දේපළ ඇපයට තබා ලබා ගන්නා ණය පහසුකම්",
+                shortEn: "High-value loans backed by property",
+                descSi: "ඔබේ ඉඩම් හෝ නිවාස දේපළ වටිනාකමට ඉහළම තක්සේරුවක් ලබා දෙමින් හදිසි හෝ දිගුකාලීන මූල්‍ය අවශ්‍යතා සඳහා ණය පහසුකම්.",
+                descEn: "Unlock the value of your residential or commercial real estate with competitive valuations and extended repayment tenures.",
+                highlightsSi: ["දේපළ සඳහා ඉහළම තක්සේරු වටිනාකම", "වසර 7ක් දක්වා දිගු ගෙවීමේ කාලයක්", "පූර්ණ නීතිමය ආරක්ෂාව සහ විශ්වාසය", "කඩිනම් මුදල් නිදහස් කිරීම"],
+                highlightsEn: ["Maximum valuation for your property", "Extended repayment up to 7 years", "Complete legal security and trust", "Rapid fund disbursement"]
+            },
+            {
+                id: 5,
+                angle: 90,
+                categoryEn: "WEALTH & ADVISORY",
+                categorySi: "ආයෝජන උපදේශන",
+                icon: "trending-up",
+                accent: "gold",
+                image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80",
+                titleSi: "ආයෝජන මූල්‍ය උපදේශන සේවා",
+                titleEn: "Investment & Financial Advisory",
+                shortSi: "ආයෝජන කටයුතු පිළිබඳ විශේෂඥ උපදේශන",
+                shortEn: "Expert wealth & portfolio advisory",
+                descSi: "ඔබේ මුදල් සුරක්ෂිතව සහ ඉහළ ප්‍රතිලාභ ලැබෙන පරිදි ආයෝජනය කිරීමට අපගේ මූල්‍ය විශේෂඥයින්ගේ වෘත්තීය උපදේශන සේවාව.",
+                descEn: "Data-driven investment strategies, risk assessment, and financial planning tailored to maximize your return on investment.",
+                highlightsSi: ["පුද්ගලික සහ ආයතනික ආයෝජන සැලසුම්", "අවදානම් කළමනාකරණ විශ්ලේෂණය", "වෙළඳපොළ ප්‍රවණතා පිළිබඳ නිවැරදි දත්ත", "තිරසාර ප්‍රතිලාභ ඉලක්ක කරගත් උපදේශන"],
+                highlightsEn: ["Personal and corporate investment plans", "Comprehensive risk management analysis", "Accurate market trend intelligence", "Sustainable ROI-focused advisory"]
+            },
+            {
+                id: 6,
+                angle: 135,
+                categoryEn: "KAIRO MANAGEMENT",
+                categorySi: "කයිරෝ කළමනාකරණ",
+                icon: "globe",
+                accent: "emerald",
+                image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=600&q=80",
+                titleSi: "KAIRO Management සේවා",
+                titleEn: "Local & Foreign Client Management",
+                shortSi: "දේශීය හා විදේශීය ගනුදෙනුකරුවන් සඳහා",
+                shortEn: "Comprehensive management for global clients",
+                descSi: "දේශීය සහ විදේශීය ආයෝජකයින් හා ගනුදෙනුකරුවන් වෙනුවෙන් ව්‍යාපාර, වත්කම් සහ ව්‍යාපෘති කළමනාකරණ සේවා KAIRO MANAGEMENT යටතේ සැපයේ.",
+                descEn: "End-to-end corporate, asset, and project management services tailored for both local Sri Lankan and international clients.",
+                highlightsSi: ["විදේශගත ශ්‍රී ලාංකිකයින් සහ ආයෝජකයින් සඳහා", "ව්‍යාපෘති සහ වත්කම් පූර්ණ කළමනාකරණය", "නීතිමය සහ පරිපාලන සම්බන්ධීකරණය", "නිරන්තර ප්‍රගති වාර්තාකරණය"],
+                highlightsEn: ["Tailored for overseas clients & investors", "End-to-end project & asset management", "Legal and administrative coordination", "Transparent periodic progress reporting"]
+            },
+            {
+                id: 7,
+                angle: 180,
+                categoryEn: "GLOBAL TRADE",
+                categorySi: "ජාත්‍යන්තර වෙළඳාම",
+                icon: "award",
+                accent: "gold",
+                image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+                titleSi: "KAIRO Cinnamon අපනයන",
+                titleEn: "KAIRO Cinnamon Exports",
+                shortSi: "උසස් තත්ත්වයේ සිලෝන් කුරුඳු අපනයනය",
+                shortEn: "Premium Ceylon Cinnamon global exports",
+                descSi: "ශ්‍රී ලංකාවේ අග්‍රගණ්‍ය සිලෝන් කුරුඳු (Ceylon Cinnamon) ජාත්‍යන්තර ප්‍රමිතීන්ට අනුකූලව ලොව පුරා වෙළඳපොළ වෙත අපනයනය කිරීම.",
+                descEn: "Sourcing, grading, and exporting authentic, export-grade Ceylon Cinnamon directly from Sri Lanka to global buyers.",
+                highlightsSi: ["100% පිරිසිදු සිලෝන් කුරුඳු (Alba, C5 Special ආදිය)", "ජාත්‍යන්තර තත්ත්ව සහතික සහ ඇසුරුම්කරණය", "තොග ඇණවුම් සඳහා විශ්වාසනීය සැපයුම් ජාලය", "දේශීය කුරුඳු වගාකරුවන් සවිබල ගැන්වීම"],
+                highlightsEn: ["100% Pure Ceylon Cinnamon (Alba, C5 Special)", "International quality certification & packaging", "Reliable supply chain for bulk global orders", "Empowering local Sri Lankan growers"]
+            },
+            {
+                id: 8,
+                angle: -135,
+                categoryEn: "INDUSTRIAL & TECH",
+                categorySi: "කර්මාන්ත සහ තාක්ෂණ",
+                icon: "wrench",
+                accent: "emerald",
+                image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80",
+                titleSi: "උපකරණ මිලදී ගැනීමේ ණය",
+                titleEn: "Equipment Financing Facilities",
+                shortSi: "යන්ත්‍රෝපකරණ සහ ව්‍යාපාරික උපකරණ සඳහා",
+                shortEn: "Machinery, medical & commercial equipment loans",
+                descSi: "කර්මාන්තශාලා යන්ත්‍රෝපකරණ, වෛද්‍ය උපකරණ, ඉදිකිරීම් හෝ කාර්යාල උපකරණ මිලදී ගැනීම සඳහා විශේෂිත ණය පහසුකම්.",
+                descEn: "Upgrade your operational capacity with tailored financing for industrial machinery, medical devices, and commercial equipment.",
+                highlightsSi: ["නවීන යන්ත්‍රෝපකරණ මිලදී ගැනීමේ පහසුව", "උපකරණයේ ආදායමෙන් වාරික ගෙවීමේ හැකියාව", "සැපයුම්කරුවන් වෙත කඩිනම් ගෙවීම්", "ව්‍යාපාර ඵලදායිතාව ඉහළ නැංවීම"],
+                highlightsEn: ["Easy acquisition of modern machinery", "Pay installments from equipment revenue", "Direct & rapid supplier settlements", "Boost overall business productivity"]
+            }
+        ];
+
+        // Job Vacancies Data
+        const jobVacancies = [
+            {
+                id: 1,
+                titleEn: "Senior Financial Advisor",
+                titleSi: "ජ්‍යෙෂ්ඨ මූල්‍ය උපදේශක",
+                typeEn: "Full-Time • Maharagama HQ",
+                typeSi: "පූර්ණ කාලීන • මහරගම ප්‍රධාන කාර්යාලය",
+                descEn: "Provide strategic financial planning and credit portfolio guidance to corporate and SME clients across Sri Lanka.",
+                descSi: "ශ්‍රී ලංකාව පුරා සිටින ආයතනික සහ සුළු හා මධ්‍ය පරිමාණ ගනුදෙනුකරුවන්ට මූල්‍ය සැලසුම් සහ ණය කළ트ර උපදේශන ලබා දීම.",
+                requirementsEn: ["Degree/Diploma in Finance, Banking or Accounting", "Minimum 3 years experience in financial advisory", "Exceptional communication and negotiation skills"],
+                requirementsSi: ["මූල්‍ය, බැංකුකරණ හෝ ගිණුම්කරණ උපාධියක්/ඩිප්ලෝමාවක්", "මූල්‍ය උපදේශන ක්ෂේත්‍රයේ අවම වශයෙන් වසර 3ක පළපුරුද්ද", "විශිෂ්ඨ සන්නිවේදන සහ සාකච්ඡා කුසලතා"]
+            },
+            {
+                id: 2,
+                titleEn: "Relationship Manager (Loans & Leasing)",
+                titleSi: "සම්බන්ධීකරණ කළමනාකාර (ණය සහ ලීසිං)",
+                typeEn: "Full-Time • Field / HQ",
+                typeSi: "පූර්ණ කාලීන • ක්ෂේත්‍ර / ප්‍රධාන කාර්යාලය",
+                descEn: "Manage vehicle and property mortgage loan portfolios, build lasting client relations, and facilitate rapid approvals.",
+                descSi: "වාහන සහ දේපළ උකස් ණය කළ트ර කළමනාකරණය, ගනුදෙනුකරුවන් සමඟ දීර්ඝකාලීන සබඳතා ගොඩනැගීම.",
+                requirementsEn: ["Proven track record in bank/finance sales", "Valid riding/driving license preferred", "Target-driven and proactive attitude"],
+                requirementsSi: ["බැංකු/මූල්‍ය අලෙවිකරණයේ සාර්ථක අත්දැකීම්", "වලංගු රියදුරු බලපත්‍රයක් තිබීම අමතර වාසියකි", "ඉලක්කගතව ක්‍රියාත්මක වීමේ හැකියාව"]
+            },
+            {
+                id: 3,
+                titleEn: "Export Operations & Logistics Executive",
+                titleSi: "අපනයන මෙහෙයුම් සහ සැපයුම් විධායක",
+                typeEn: "Full-Time • Export Division",
+                typeSi: "පූර්ණ කාලීන • අපනයන අංශය",
+                descEn: "Coordinate international shipments of Ceylon Cinnamon, manage packaging standards, and liaise with global buyers.",
+                descSi: "සිලෝන් කුරුඳු ජාත්‍යන්තර නැව්ගත කිරීම් සම්බන්ධීකරණය, ඇසුරුම් ප්‍රමිතීන් සහ විදේශීය ক্রেතුන් සමඟ සන්නිවේදනය.",
+                requirementsEn: ["Experience in export documentation / customs", "Fluency in English (additional languages a plus)", "Strong organizational skills"],
+                requirementsSi: ["අපනයන ලියකියවිලි / රේගු කටයුතු පිළිබඳ පළපුරුද්ද", "ඉංග්‍රීසි භාෂා ප්‍රවීණතාවය", "විශිෂ්ඨ සංවිධාන කුසලතා"]
+            }
+        ];
+
+        // Tracked Currencies Metadata
+        const currencyMeta = [
+            { code: "USD", nameEn: "US Dollar", nameSi: "ඇමරිකානු ඩොලර්" },
+            { code: "EUR", nameEn: "Euro", nameSi: "යුරෝ" },
+            { code: "GBP", nameEn: "British Pound", nameSi: "බ්‍රිතාන්‍ය පවුම්" },
+            { code: "AUD", nameEn: "Australian Dollar", nameSi: "ඔස්ට්‍රේලියානු ඩොලර්" },
+            { code: "CAD", nameEn: "Canadian Dollar", nameSi: "කැනේඩියානු ඩොලර්" },
+            { code: "SGD", nameEn: "Singapore Dollar", nameSi: "සිංගප්පූරු ඩොලර්" },
+            { code: "JPY", nameEn: "Japanese Yen", nameSi: "ජපන් යෙන්" },
+            { code: "INR", nameEn: "Indian Rupee", nameSi: "ඉන්දීය රුපියල්" },
+            { code: "AED", nameEn: "UAE Dirham", nameSi: "එක්සත් අරාබි එමීර් ඩිරාම්" }
+        ];
+
+        let liveExchangeRates = {};
+        let isLiveApiActive = false;
+
+        async function fetchLiveCurrencyRates() {
+            try {
+                const response = await fetch('https://open.er-api.com/v6/latest/USD');
+                const data = await response.json();
+                if (data && data.result === 'success') {
+                    liveExchangeRates = data.rates;
+                    isLiveApiActive = true;
+                    renderRatesTable();
+                    updateCurrencyConverter();
+                }
+            } catch (err) {
+                console.warn("Live API fetch warning, using robust indicative spreads:", err);
+                isLiveApiActive = false;
+                renderRatesTable();
+                updateCurrencyConverter();
+            }
+        }
+
+        function getBuySellRates(code) {
+            const fallbackRates = {
+                USD: { buy: 301.50, sell: 310.20 },
+                EUR: { buy: 326.80, sell: 337.40 },
+                GBP: { buy: 388.10, sell: 399.50 },
+                AUD: { buy: 195.40, sell: 202.10 },
+                CAD: { buy: 215.20, sell: 222.80 },
+                SGD: { buy: 226.30, sell: 233.90 },
+                JPY: { buy: 1.96, sell: 2.05 },
+                INR: { buy: 3.58, sell: 3.75 },
+                AED: { buy: 82.05, sell: 84.65 }
+            };
+
+            if (isLiveApiActive && liveExchangeRates['LKR'] && liveExchangeRates[code]) {
+                const usdToLkr = liveExchangeRates['LKR'];
+                const usdToCode = liveExchangeRates[code];
+                const midMarketLkr = usdToLkr / usdToCode;
+                return {
+                    buy: midMarketLkr * 0.988,  // Bank buying rate
+                    sell: midMarketLkr * 1.012   // Bank selling rate
+                };
+            }
+            return fallbackRates[code] || { buy: 300, sell: 310 };
+        }
+
+        let currentLang = 'en';
+        let activeNodeId = null;
+
+        const vmContent = {
+            en: {
+                vision: "To be the most trusted and innovative financial, management, and export investment partner in Sri Lanka and global markets, driving sustainable economic prosperity.",
+                mission: "To empower our clients and partners through agile, transparent credit facilities, expert investment advisory, global management solutions, and premium Ceylon cinnamon exports."
+            },
+            si: {
+                vision: "ශ්‍රී ලංකාවේ සහ ජාත්‍යන්තර වෙළඳපොළේ වඩාත්ම විශ්වාසනීය, නවෝත්පාදනශීලී මූල්‍ය, කළමනාකරණ සහ අපනයන ආයෝජන සහකරු බවට පත්වෙමින් තිරසාර ආර්ථික සමෘද්ධියක් ගොඩනැගීම.",
+                mission: "සුහදශීලී, කඩිනම් සහ විනිවිදභාවයෙන් යුත් මූල්‍ය ණය පහසුකම්, විශේෂඥ ආයෝජන උපදේශන සේවා, දේශීය හා විදේශීය කළමනාකරණ විසඳුම් සහ උසස් තත්ත්වයේ කුරුඳු අපනයනය තුළින් අපගේ ගනුදෙනුකරුවන් සවිබල ගැන්වීම."
+            }
+        };
+
+        const uiTranslations = {
+            en: {
+                nav_ecosystem: "Service Ecosystem",
+                nav_vision: "Vision & Mission",
+                nav_calc: "Currency Rates",
+                nav_careers: "Careers",
+                nav_cta: "Contact Us",
+                hero_badge: "Financial, Management & Export Excellence • www.kairoinvestment.lk",
+                hero_title: "Empowering Growth Through Precision Finance & Global Trade",
+                hero_sub: "Click any orbiting division around our corporate emblem to explore professional services and apply online.",
+                hub_badge: "8 Core Divisions • Click to Explore",
+                vm_tag: "CORPORATE COMPASS",
+                vm_heading: "Our Vision & Mission",
+                vm_edit_btn: "Edit Vision & Mission",
+                vm_save_btn: "Save Changes",
+                vision_title: "Our Vision",
+                vision_sub: "Future Horizon",
+                vision_edit_label: "Edit Vision Statement:",
+                mission_title: "Our Mission",
+                mission_sub: "Core Purpose",
+                mission_edit_label: "Edit Mission Statement:",
+                curr_title: "Real-Time Currency Rates & Simultaneous Buy/Sell Converter",
+                conv_heading: "Instant Currency Converter",
+                conv_amount_label: "Foreign Currency Amount:",
+                conv_from_label: "From Currency:",
+                conv_to_label: "To Target:",
+                conv_buy_result_label: "Bank Buying Value in LKR",
+                conv_sell_result_label: "Bank Selling Value in LKR",
+                conv_inquire_btn: "Inquire About FX / Trade Services",
+                table_heading: "Live Bank Buying & Selling Rates vs LKR",
+                th_currency: "Currency",
+                th_code: "Code",
+                th_buy: "Bank Buying (LKR)",
+                th_sell: "Bank Selling (LKR)",
+                careers_badge: "JOIN OUR GROWING ECOSYSTEM",
+                careers_title: "Career Opportunities & Job Vacancies",
+                careers_sub: "Explore open professional roles at KAIRO INVESTMENT (PVT) LTD and submit your curriculum vitae (CV) securely online.",
+                cv_form_heading: "Direct CV Submission Portal",
+                cv_form_sub: "Upload your updated CV (PDF or Word) and details for our recruitment team.",
+                lbl_fullname: "Full Name *",
+                lbl_email: "Email Address *",
+                lbl_phone: "Phone Number *",
+                lbl_position: "Position Applying For *",
+                opt_select_pos: "-- Select Position --",
+                lbl_cv: "Upload CV / Resume (PDF, DOC, DOCX - Max 5MB) *",
+                cv_upload_prompt: "Click to browse or drag & drop your CV file here",
+                lbl_cover: "Cover Note / Remarks (Optional)",
+                btn_submit_cv: "Submit Application & CV",
+                footer_tagline: "FINANCE • MANAGEMENT • EXPORTS",
+                footer_desc: "Modern financial solutions, strategic investment advisory, local & global client management, and premium Ceylon cinnamon exports under one roof.",
+                footer_div_heading: "Core Divisions",
+                footer_contact_heading: "Contact Office",
+                footer_address: "No 94/5, High Level Road, Maharagama, Sri Lanka",
+                footer_msg_link: "Send an Online Inquiry →",
+                footer_rights: "All Rights Reserved.",
+                footer_credit: "Designed with Emerald & Gold Precision",
+                modal_highlights_title: "Key Highlights:",
+                modal_form_title: "Submit a Quick Inquiry",
+                modal_submit_btn: "Submit Request",
+                contact_desk_tag: "KAIRO CORPORATE DESK",
+                contact_modal_title: "Get in Touch With Us",
+                contact_modal_desc: "Welcome to KAIRO INVESTMENT (PVT) LTD. Let us know which financial, management, or export service you require.",
+                contact_h1: "Reliable and prompt service",
+                contact_h2: "Dedicated financial advisory support",
+                toast_reset_title: "KAIRO INVESTMENT (PVT) LTD",
+                toast_reset_msg: "All 8 service divisions reset. Click any division to explore.",
+                toast_vm_title: "Updated!",
+                toast_vm_msg: "Your updated Vision and Mission statements are now live.",
+                toast_inq_title: "Application Received!",
+                toast_inq_msg: "Your CV and application have been successfully submitted to KAIRO HR. We will contact you soon."
+            },
+            si: {
+                nav_ecosystem: "සේවා ජාලය",
+                nav_vision: "දැක්ම සහ මෙහෙවර",
+                nav_calc: "මුදල් විනිමය",
+                nav_careers: "රැකියා අවස්ථා",
+                nav_cta: "සම්බන්ධ වන්න",
+                hero_badge: "මූල්‍ය, කළමනාකරණ සහ අපනයන විශිෂ්ටත්වය • www.kairoinvestment.lk",
+                hero_title: "ඔබේ ව්‍යාපාරික සහ මූල්‍ය සිහින සැබෑ කරන කේන්ද්‍රස්ථානය",
+                hero_sub: "පහත ඕනෑම සේවා අංශයක් මත Click කර සම්පූර්ණ විස්තර සහ අයදුම් කිරීමේ පහසුකම් ලබා ගන්න.",
+                hub_badge: "ප්‍රධාන සේවා අංශ 8 • ගවේෂණය කරන්න",
+                vm_tag: "ආයතනික දිශානතිය",
+                vm_heading: "අපගේ දැක්ම සහ මෙහෙවර",
+                vm_edit_btn: "දැක්ම සහ මෙහෙවර වෙනස් කරන්න",
+                vm_save_btn: "වෙනස්කම් සුරකින්න",
+                vision_title: "අපගේ දැක්ම",
+                vision_sub: "අනාගත දැක්ම",
+                vision_edit_label: "සිංහල දැක්ම වෙනස් කරන්න:",
+                mission_title: "අපගේ මෙහෙවර",
+                mission_sub: "මූලික අරමුණ",
+                mission_edit_label: "සිංහල මෙහෙවර වෙනස් කරන්න:",
+                curr_title: "තත්‍ය කාලීන මුදල් අනුපාත සහ එකවර Buy/Sell ගණනය කිරීම",
+                conv_heading: "ක්ෂණික මුදල් පරිවර්තකය",
+                conv_amount_label: "විදේශීය මුදල් ප්‍රමාණය:",
+                conv_from_label: "මුදල් වර්ගය:",
+                conv_to_label: "ඉලක්කය:",
+                conv_buy_result_label: "LKR වලින් බැංකු මිලදී ගැනීමේ වටිනාකම",
+                conv_sell_result_label: "LKR වලින් බැංකු විකිණුම් වටිනාකම",
+                conv_inquire_btn: "විනිමය / වෙළඳ සේවා සඳහා විමසන්න",
+                table_heading: "ශ්‍රී ලංකා රුපියල (LKR) සමඟ සජීවී බැංකු මිලදී ගැනීමේ සහ විකිණුම් මිල ගණන්",
+                th_currency: "මුදල් ඒකකය",
+                th_code: "කේතය",
+                th_buy: "මිලදී ගැනීමේ (LKR)",
+                th_sell: "විකිණුම් (LKR)",
+                careers_badge: "අපගේ කණ්ඩායමට එක්වන්න",
+                careers_title: "රැකියා අවස්ථා සහ වෘත්තීය පුහුණු",
+                careers_sub: "කයිරෝ ඉන්වෙස්ට්මන්ට් ආයතනයේ විවෘත රැකියා තනතුරු පරීක්ෂා කර ඔබගේ CV ගොනුව මාර්ගගතව උඩුගත කරන්න.",
+                cv_form_heading: "සීවී (CV) උඩුගත කිරීමේ දොරටුව",
+                cv_form_sub: "ඔබගේ යාවත්කාලීන කළ CV ගොනුව (PDF හෝ Word) සහ විස්තර අප වෙත එවන්න.",
+                lbl_fullname: "සම්පූර්ණ නම *",
+                lbl_email: "විද්‍යුත් තැපැල් ලිපිනය *",
+                lbl_phone: "දුරකථන අංකය *",
+                lbl_position: "අයදුම් කරන තනතුර *",
+                opt_select_pos: "-- තනතුරක් තෝරන්න --",
+                lbl_cv: "ඔබේ CV ගොනුව උඩුගත කරන්න (PDF, DOC, DOCX - උපරිම 5MB) *",
+                cv_upload_prompt: "ဖိုင် තෝරා ගැනීමට මෙතැන ක්ලික් කරන්න හෝ CV ගොනුව මෙතැනට Drag කරන්න",
+                lbl_cover: "අතිරේක සටහන් (ඇත්නම්)",
+                btn_submit_cv: "අයදුම්පත සහ CV යොමු කරන්න",
+                footer_tagline: "මූල්‍ය • කළමනාකරණ • අපනයන",
+                footer_desc: "නවීන මූල්‍ය විසඳුම්, ව්‍යාපාරික උපදේශන, දේශීය හා විදේශීය කළමනාකරණ සේවා සහ ශ්‍රී ලාංකේය කුරුඳු අපනයනය එකම වහලක් යටින්.",
+                footer_div_heading: "ප්‍රධාන අංශ",
+                footer_contact_heading: "අප අමතන්න",
+                footer_address: "අංක 94/5, හයිලෙවල් පාර, මහරගම, ශ්‍රී ලංකාව",
+                footer_msg_link: "ඔන්ලයින් පණිවිඩයක් යොමු කරන්න →",
+                footer_rights: "සියලුම හිමිකම් ඇවිරිණි.",
+                footer_credit: "KAIRO INVESTMENT (PVT) LTD",
+                modal_highlights_title: "ප්‍රධාන ප්‍රතිලාභ:",
+                modal_form_title: "මෙම සේවාව සඳහා විමසීමක් යොමු කරන්න",
+                modal_submit_btn: "අයදුම්පත / විමසීම යොමු කරන්න",
+                contact_desk_tag: "ආයතනික සම්බන්ධීකරණ අංශය",
+                contact_modal_title: "අප හා සම්බන්ධ වන්න",
+                contact_modal_desc: "KAIRO INVESTMENT (PVT) LTD වෙත ඔබව සාදරයෙන් පිළිගනිමු. ඔබට අවශ්‍ය සේවාව පහතින් සඳහන් කරන්න.",
+                contact_h1: "විශ්වාසනීය සහ කඩිනම් සේවාව",
+                contact_h2: "පුද්ගලික මූල්‍ය උපදේශන සහාය",
+                toast_reset_title: "KAIRO INVESTMENT (PVT) LTD",
+                toast_reset_msg: "සියලුම සේවා අංශ 8 නැවත සකසන ලදී. ඕනෑම අංශයක් තෝරන්න.",
+                toast_vm_title: "යාවත්කාලීන කරන ලදී!",
+                toast_vm_msg: "ඔබේ නව දැක්ම සහ මෙහෙවර වගන්ති පිටුවට ඇතුළත් විය.",
+                toast_inq_title: "අයදුම්පත සාර්ථකව ලැබුණි!",
+                toast_inq_msg: "ඔබගේ CV සහ විස්තර කයිරෝ මානව සම්පත් අංශය වෙත ලැබුණි. අපි ඉක්මනින් ඔබව සම්බන්ධ කරගන්නෙමු."
+            }
+        };
+
+        const footerDivisionsByLang = {
+            en: [
+                "• Vehicle, SME, Business & Mortgage Loans",
+                "• Equipment Financing Facilities",
+                "• Investment & Financial Advisory",
+                "• KAIRO Management (Local & Global Clients)",
+                "• KAIRO Cinnamon Exports"
+            ],
+            si: [
+                "• වාහන, කුඩා හා මධ්‍යම, ව්‍යාපාරික සහ දේපළ ණය",
+                "• උපකරණ මිලදී ගැනීමේ ණය පහසුකම්",
+                "• ආයෝජන සහ මූල්‍ය උපදේශන සේවා",
+                "• KAIRO Management (දේශීය හා විදේශීය කළමනාකරණ සේවා)",
+                "• KAIRO Cinnamon අපනයන සේවා"
+            ]
+        };
+
+        function renderOrbitalEcosystem() {
+            const container = document.getElementById('nodesContainer');
+            const beamsGroup = document.getElementById('beamsGroup');
+            container.innerHTML = '';
+            beamsGroup.innerHTML = '';
+
+            const centerX = 640;
+            const centerY = 420;
+            const radiusX = 475;
+            const radiusY = 300;
+
+            kairoServices.forEach((service) => {
+                const rad = (service.angle * Math.PI) / 180;
+                const x = centerX + radiusX * Math.cos(rad);
+                const y = centerY + radiusY * Math.sin(rad);
+
+                const leftPct = (x / 1280) * 100;
+                const topPct = (y / 840) * 100;
+
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('id', `beam-${service.id}`);
+                line.setAttribute('x1', centerX);
+                line.setAttribute('y1', centerY);
+                line.setAttribute('x2', x);
+                line.setAttribute('y2', y);
+                line.setAttribute('stroke', service.accent === 'gold' ? 'rgba(253, 184, 19, 0.28)' : 'rgba(45, 179, 74, 0.32)');
+                line.setAttribute('stroke-width', '2');
+                beamsGroup.appendChild(line);
+
+                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('cx', x);
+                dot.setAttribute('cy', y);
+                dot.setAttribute('r', '5');
+                dot.setAttribute('fill', service.accent === 'gold' ? '#FDB813' : '#2DB34A');
+                beamsGroup.appendChild(dot);
+
+                const nodeWrapper = document.createElement('div');
+                nodeWrapper.className = 'orbital-node-wrapper';
+                nodeWrapper.style.left = `${leftPct}%`;
+                nodeWrapper.style.top = `${topPct}%`;
+
+                const badgeColor = service.accent === 'gold' 
+                    ? 'bg-kairo-gold/20 text-kairo-gold border-kairo-gold/40' 
+                    : 'bg-kairo-vibrant/20 text-kairo-vibrant border-kairo-vibrant/40';
+
+                const catText = currentLang === 'si' ? service.categorySi : service.categoryEn;
+                const titleText = currentLang === 'si' ? service.titleSi : service.titleEn;
+                const shortText = currentLang === 'si' ? service.shortSi : service.shortEn;
+                const subColor = currentLang === 'si' ? 'text-emerald-200/80' : 'text-amber-200/80';
+
+                nodeWrapper.innerHTML = `
+                    <div id="node-card-${service.id}"
+                         onmouseenter="highlightBeam(${service.id}, true)"
+                         onmouseleave="highlightBeam(${service.id}, false)"
+                         onclick="openServiceModal(${service.id})"
+                         class="glass-node rounded-2xl cursor-pointer relative group shadow-xl">
+                        <!-- Professional Industrial/Corporate Photo Header -->
+                        <div class="relative h-28 w-full overflow-hidden">
+                            <img src="${service.image}" alt="${titleText}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#05110B] via-[#05110B]/50 to-transparent"></div>
+                            <div class="absolute top-2.5 left-2.5 flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-md bg-kairo-abyss/80 backdrop-blur-md border border-emerald-500/30 text-[9px] font-extrabold uppercase tracking-wider text-kairo-gold">
+                                    0${service.id} • ${catText}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="p-3.5 sm:p-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-xl border ${badgeColor} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform relative">
+                                    <i data-lucide="${service.icon}" class="w-5 h-5"></i>
+                                    <span class="absolute -top-1.5 -right-1.5 w-3 h-3 rounded-full ${service.accent === 'gold' ? 'bg-kairo-gold shadow-[0_0_10px_#FDB813]' : 'bg-kairo-vibrant shadow-[0_0_10px_#2DB34A]'} led-pulse border-2 border-[#05110B]"></span>
+                                </div>
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2">
+                                        <span class="block text-sm font-bold text-white leading-snug font-display">${titleText}</span>
+                                    </div>
+                                    <p class="text-[11px] ${subColor} mt-0.5 line-clamp-1">${shortText}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(nodeWrapper);
+            });
+
+            lucide.createIcons();
+        }
+
+        function renderJobVacancies() {
+            const grid = document.getElementById('vacanciesGrid');
+            grid.innerHTML = jobVacancies.map(job => {
+                const title = currentLang === 'si' ? job.titleSi : job.titleEn;
+                const type = currentLang === 'si' ? job.typeSi : job.typeEn;
+                const desc = currentLang === 'si' ? job.descSi : job.descEn;
+                const reqs = currentLang === 'si' ? job.requirementsSi : job.requirementsEn;
+                const reqTitle = currentLang === 'si' ? 'අවශ්‍ය සුදුසුකම්:' : 'Key Requirements:';
+                const applyBtnText = currentLang === 'si' ? 'මෙම තනතුරට Apply කරන්න' : 'Apply For This Role';
+
+                return `
+                    <div class="glass-panel rounded-3xl p-6 border border-emerald-500/25 flex flex-col justify-between shadow-xl relative group hover:border-kairo-gold transition-all">
+                        <div>
+                            <div class="flex items-center justify-between mb-3">
+                                <span class="px-3 py-1 rounded-full bg-kairo-emerald/20 border border-kairo-emerald/40 text-kairo-gold text-[11px] font-bold">${type}</span>
+                                <i data-lucide="award" class="w-5 h-5 text-kairo-gold"></i>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">${title}</h3>
+                            <p class="text-xs text-slate-300 leading-relaxed mb-4">${desc}</p>
+                            <div class="space-y-1.5 mb-6">
+                                <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider block">${reqTitle}</span>
+                                <ul class="space-y-1 text-xs text-slate-300">
+                                    ${reqs.map(r => `<li class="flex items-start gap-1.5"><i data-lucide="check-circle" class="w-3.5 h-3.5 text-kairo-vibrant shrink-0 mt-0.5"></i><span>${r}</span></li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                        <button onclick="selectJobPosition('${title}')" class="w-full py-2.5 px-4 rounded-xl bg-kairo-emerald/30 hover:bg-kairo-emerald border border-emerald-500/50 text-white font-bold text-xs transition-all flex items-center justify-center gap-2">
+                            <span>${applyBtnText}</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+            lucide.createIcons();
+        }
+
+        function selectJobPosition(title) {
+            const select = document.getElementById('applicantPosition');
+            for (let i = 0; i < select.options.length; i++) {
+                if (select.options[i].value === title) {
+                    select.selectedIndex = i;
+                    break;
+                }
+            }
+            const el = document.getElementById('careers');
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleFileSelect(input) {
+            const display = document.getElementById('cvFileNameDisplay');
+            if (input.files && input.files[0]) {
+                display.textContent = `Selected: ${input.files[0].name}`;
+                display.className = "text-xs text-kairo-gold font-bold";
+            }
+        }
+
+        function highlightBeam(id, isHover) {
+            const beam = document.getElementById(`beam-${id}`);
+            if (!beam) return;
+            if (isHover) {
+                beam.setAttribute('stroke', '#FDB813');
+                beam.setAttribute('stroke-width', '3.5');
+                beam.classList.add('beam-active');
+            } else if (activeNodeId !== id) {
+                const svc = kairoServices.find(s => s.id === id);
+                beam.setAttribute('stroke', svc && svc.accent === 'gold' ? 'rgba(253, 184, 19, 0.28)' : 'rgba(45, 179, 74, 0.32)');
+                beam.setAttribute('stroke-width', '2');
+                beam.classList.remove('beam-active');
+            }
+        }
+
+        function resetOrbitSelection() {
+            activeNodeId = null;
+            kairoServices.forEach(s => highlightBeam(s.id, false));
+            const t = uiTranslations[currentLang];
+            showToast(t.toast_reset_title, t.toast_reset_msg);
+        }
+
+        function openServiceModal(id) {
+            const service = kairoServices.find(s => s.id === id);
+            if (!service) return;
+            activeNodeId = id;
+
+            const catText = currentLang === 'si' ? service.categorySi : service.categoryEn;
+            const titleText = currentLang === 'si' ? service.titleSi : service.titleEn;
+            const descText = currentLang === 'si' ? service.descSi : service.descEn;
+            const highlights = currentLang === 'si' ? service.highlightsSi : service.highlightsEn;
+            const divLabel = currentLang === 'si' ? `අංශය 0${service.id} • ${catText}` : `DIVISION 0${service.id} • ${catText}`;
+
+            document.getElementById('modalCategoryTag').textContent = divLabel;
+            document.getElementById('modalTitle').textContent = titleText;
+            document.getElementById('modalDesc').textContent = descText;
+            document.getElementById('inquiryServiceInput').value = titleText;
+
+            const iconBox = document.getElementById('modalIconBox');
+            iconBox.innerHTML = `<i data-lucide="${service.icon}" class="w-6 h-6"></i>`;
+
+            const highlightsList = document.getElementById('modalHighlights');
+            highlightsList.innerHTML = highlights.map(item => `
+                <li class="flex items-start gap-2">
+                    <i data-lucide="check-circle" class="w-4 h-4 text-kairo-vibrant shrink-0 mt-0.5"></i>
+                    <span>${item}</span>
+                </li>
+            `).join('');
+
+            const modal = document.getElementById('serviceModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function openInquiryModal(topic) {
+            const t = uiTranslations[currentLang];
+            document.getElementById('modalCategoryTag').textContent = t.contact_desk_tag;
+            document.getElementById('modalTitle').textContent = t.contact_modal_title;
+            document.getElementById('modalDesc').textContent = t.contact_modal_desc;
+            document.getElementById('inquiryServiceInput').value = topic;
+            document.getElementById('modalIconBox').innerHTML = `<i data-lucide="headphones" class="w-6 h-6"></i>`;
+            document.getElementById('modalHighlights').innerHTML = `
+                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-kairo-gold"></i><span>${t.contact_h1}</span></li>
+                <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4 text-kairo-gold"></i><span>${t.contact_h2}</span></li>
+            `;
+            const modal = document.getElementById('serviceModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeServiceModal() {
+            const modal = document.getElementById('serviceModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        async function submitInquiry(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('modalSubmitBtn');
+            const name = document.getElementById('clientName').value;
+            const service = document.getElementById('inquiryServiceInput').value;
+            const t = uiTranslations[currentLang];
+
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = currentLang === 'si' ? 'යොමු කරමින් පවතී...' : 'Submitting...';
+
+            try {
+                if (window.location.protocol.startsWith('http')) {
+                    const formData = new FormData(form);
+                    await fetch("/", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: new URLSearchParams(formData).toString()
+                    });
+                }
+            } catch (err) {
+                console.warn("Form submission fallback triggered:", err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+                closeServiceModal();
+                form.reset();
+
+                const msg = currentLang === 'si'
+                    ? `ස්තූතියි ${name}! "${service}" සඳහා වන ඔබේ විමසීම ලැබුණි.`
+                    : `Thank you ${name}! Your inquiry regarding "${service}" has been received.`;
+                showToast(t.toast_inq_title, msg);
+            }
+        }
+
+        async function submitCareerForm(e) {
+            e.preventDefault();
+            const form = e.target;
+            const submitBtn = document.getElementById('careerSubmitBtn');
+            const t = uiTranslations[currentLang];
+
+            const originalText = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = currentLang === 'si' ? 'උඩුගත කරමින් පවතී...' : 'Uploading CV...';
+
+            try {
+                if (window.location.protocol.startsWith('http')) {
+                    const formData = new FormData(form);
+                    await fetch("/", {
+                        method: "POST",
+                        body: formData
+                    });
+                }
+            } catch (err) {
+                console.warn("Career form submission fallback triggered:", err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+                form.reset();
+                document.getElementById('cvFileNameDisplay').textContent = t.cv_upload_prompt;
+                showToast(t.toast_inq_title, t.toast_inq_msg);
+            }
+        }
+
+        function renderRatesTable() {
+            const tbody = document.getElementById('liveRatesTableBody');
+            tbody.innerHTML = currencyMeta.map(item => {
+                const currName = currentLang === 'si' ? item.nameSi : item.nameEn;
+                const rates = getBuySellRates(item.code);
+                return `
+                    <tr class="hover:bg-emerald-950/45 transition-colors">
+                        <td class="p-3.5 sm:px-4 font-semibold text-white flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-kairo-gold"></span>
+                            ${currName}
+                        </td>
+                        <td class="p-3.5 sm:px-4 font-mono font-bold text-emerald-300">${item.code}</td>
+                        <td class="p-3.5 sm:px-4 text-right font-display font-bold text-kairo-vibrant">LKR ${rates.buy.toFixed(2)}</td>
+                        <td class="p-3.5 sm:px-4 text-right font-display font-bold text-kairo-gold">LKR ${rates.sell.toFixed(2)}</td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Calculates and updates BOTH Bank Buying Value and Bank Selling Value simultaneously
+        function updateCurrencyConverter() {
+            const amount = parseFloat(document.getElementById('convAmount').value) || 0;
+            const currCode = document.getElementById('convCurrency').value;
+            const rates = getBuySellRates(currCode);
+            const totalBuyLKR = amount * rates.buy;
+            const totalSellLKR = amount * rates.sell;
+            
+            document.getElementById('conversionBuyResult').innerText = `LKR ${totalBuyLKR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+            document.getElementById('conversionSellResult').innerText = `LKR ${totalSellLKR.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}`;
+        }
+
+        function inquireFromConverter() {
+            const amount = document.getElementById('convAmount').value;
+            const curr = document.getElementById('convCurrency').value;
+            const buyRes = document.getElementById('conversionBuyResult').innerText;
+            const sellRes = document.getElementById('conversionSellResult').innerText;
+            openInquiryModal(`Foreign Exchange (${amount} ${curr})`);
+            document.getElementById('clientNote').value = `FX Inquiry: Converting ${amount} ${curr} -> Buying Value: ${buyRes}, Selling Value: ${sellRes}. Please advise.`;
+        }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            ['en', 'si'].forEach(code => {
+                const btn = document.getElementById(`lang-${code}`);
+                if (code === lang) {
+                    btn.className = 'px-3 py-1 rounded-lg bg-kairo-emerald text-white transition-all shadow';
+                } else {
+                    btn.className = 'px-3 py-1 rounded-lg text-slate-300 hover:text-white transition-all';
+                }
+            });
+
+            const t = uiTranslations[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
+
+            document.getElementById('clientName').placeholder = t.modal_name_ph || 'Your Name *';
+            document.getElementById('clientPhone').placeholder = t.modal_phone_ph || 'Phone Number *';
+            document.getElementById('clientNote').placeholder = t.modal_note_ph || 'Briefly describe your requirement (Optional)...';
+
+            document.getElementById('visionActiveText').textContent = `"${vmContent[lang].vision}"`;
+            document.getElementById('missionActiveText').textContent = `"${vmContent[lang].mission}"`;
+            document.getElementById('visionEditLabel').textContent = t.vision_edit_label;
+            document.getElementById('missionEditLabel').textContent = t.mission_edit_label;
+            document.getElementById('editVmBtnText').textContent = isEditingVM ? t.vm_save_btn : t.vm_edit_btn;
+
+            document.getElementById('footerDivisionsList').innerHTML = footerDivisionsByLang[lang]
+                .map(item => `<li>${item}</li>`)
+                .join('');
+
+            renderOrbitalEcosystem();
+            renderRatesTable();
+            renderJobVacancies();
+            updateCurrencyConverter();
+        }
+
+        let isEditingVM = false;
+        function toggleEditVisionMission() {
+            isEditingVM = !isEditingVM;
+            const t = uiTranslations[currentLang];
+            const btnText = document.getElementById('editVmBtnText');
+
+            if (isEditingVM) {
+                document.getElementById('visionInput').value = vmContent[currentLang].vision;
+                document.getElementById('missionInput').value = vmContent[currentLang].mission;
+
+                document.getElementById('visionDisplay').classList.add('hidden');
+                document.getElementById('visionEdit').classList.remove('hidden');
+                document.getElementById('missionDisplay').classList.add('hidden');
+                document.getElementById('missionEdit').classList.remove('hidden');
+                btnText.textContent = t.vm_save_btn;
+            } else {
+                const newV = document.getElementById('visionInput').value.trim();
+                const newM = document.getElementById('missionInput').value.trim();
+
+                if (newV) vmContent[currentLang].vision = newV;
+                if (newM) vmContent[currentLang].mission = newM;
+
+                document.getElementById('visionActiveText').textContent = `"${vmContent[currentLang].vision}"`;
+                document.getElementById('missionActiveText').textContent = `"${vmContent[currentLang].mission}"`;
+
+                document.getElementById('visionDisplay').classList.remove('hidden');
+                document.getElementById('visionEdit').classList.add('hidden');
+                document.getElementById('missionDisplay').classList.remove('hidden');
+                document.getElementById('missionEdit').classList.add('hidden');
+                btnText.textContent = t.vm_edit_btn;
+                showToast(t.toast_vm_title, t.toast_vm_msg);
+            }
+        }
+
+        function showToast(title, msg) {
+            const box = document.getElementById('toastBox');
+            document.getElementById('toastTitle').textContent = title;
+            document.getElementById('toastMsg').textContent = msg;
+            box.classList.remove('hidden');
+            setTimeout(() => {
+                box.classList.add('hidden');
+            }, 4500);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('yearSpan').textContent = new Date().getFullYear();
+            setLanguage('en');
+            fetchLiveCurrencyRates();
+        });
+    </script>
+</body>
+</html>
